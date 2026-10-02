@@ -1,12 +1,12 @@
-# LearningValueFunctions
+# Q Can Play That Game
 
-Fitted Q-iteration for a two-player zero-sum game. The Q-function is parameterized as
+This repo implements a modified online fitted Q-iteration for a two-player zero-sum Markov game. The Q-function is parameterized as
 
 ```
 Q(x,u,v) = A(x,u) - B(x,v) + u' C(x) v
 ```
 
-with partially input-convex networks (PICNN) for `A` and `B`, and a small MLP (`MatrixNet`) for `C(x)`. Each iteration samples one-step transitions, solves the inner stage game with SeCoND + Clarabel, and takes a semi-gradient TD update.
+with partially input-convex networks (PICNN) for `A` and `B`, and a small MLP (`MatrixNet`) for `C(x)`. Each iteration samples one-step transitions, solves the inner stage game with the SeCoND zero-sum static solver, and takes a semi-gradient TD styled update.
 
 The included example is **`non_lq`**: two stacked planar double integrators (`x ∈ ℝ⁸`, `u,v ∈ ℝ²`) with a nonlinear (exponential) separation stage cost.
 
